@@ -30,8 +30,9 @@ Options:
 ## Building and running your project
 
 1. Type `cd HelloWorld`
-2. Type `ant installd` to build and install your app on your phone
-3. Type `adb shell am start -n io.github.audinue.helloworld/.HelloWorld` to start the activity
-4. Type `adb shell input keyevent KEYCODE_POWER` to turn on your phone. This command doesn't work over the air.
+2. Type `ant debug` to build your app
+3. Type `ant installd` to install your app on your phone
+4. Type `adb shell am start -n io.github.audinue.helloworld/.HelloWorld` to start the activity
+5. Type `adb shell input keyevent KEYCODE_POWER` to turn on your phone. This command doesn't work over the air.
 
 Done!
