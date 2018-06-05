@@ -130,3 +130,32 @@ canvas.drawRect(x, y, RIGHT, BOTTOM, paint);
 ```java
 canvas.drawBitmap(bitmap, x, y, paint);
 ```
+
+## How to keep screen on?
+
+```java
+import android.view.WindowManager;
+
+getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+// To disable:
+getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+```
+
+## How to draw text?
+
+```java
+canvas.drawText("Hello world!", x, y, paint);
+```
+
+## How to load a font?
+
+```java
+import android.graphics.Typeface;
+
+try {
+  Typeface t = Typeface.createFromAsset(getAssets(), "Quirlycues.ttf");
+  paint.setTypeface(t);
+} catch (Exception e) {
+}
+```
