@@ -86,3 +86,28 @@ private void onGameLoop() {
   }
 }
 ```
+
+## How to play sounds?
+
+```java
+import android.media.MediaPlayer;
+import android.content.res.AssetFileDescriptor;
+
+private MediaPlayer player;
+
+try {
+  AssetFileDescriptor afd = getAssets().openFd("shoot.wav");
+  player = new MediaPlayer();
+  player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+  afd.close();
+  player.prepare();
+} catch (Exception e) {
+}
+
+private void onGameLoop() {
+  if (touchState == 1) {
+      player.seekTo(0); // player.setLooping(true) for bgm
+      player.start();
+  }
+}
+```
