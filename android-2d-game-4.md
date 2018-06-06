@@ -71,7 +71,7 @@ public boolean onTouchEvent(MotionEvent e) {
       break;
     case MotionEvent.ACTION_UP:
     case MotionEvent.ACTION_CANCEL:
-      state = 2;
+      state = 0;
       break;
   }
 }
