@@ -50,7 +50,7 @@ try {
 }
 ```
 
-# How to handle single touch input?
+## How to handle single touch input?
 
 ```java
 import android.view.MotionEvent;
