@@ -74,7 +74,7 @@ public boolean onTouchEvent(MotionEvent e) {
       touchState = 0;
       break;
   }
-  return super.onTouchEvent(e);
+  return true;
 }
 
 private void onGameLoop() {
@@ -84,6 +84,35 @@ private void onGameLoop() {
   if (touchState == 1) {
     touchState = 2;
   }
+}
+```
+
+## How to handle multitouch input?
+
+```java
+import android.view.MotionEvent;
+
+@Override
+public boolean onTouchEvent(MotionEvent e) {
+  int index = e.getActionIndex();
+  int id = e.getPointerId(index);
+  float x = e.getX(id);
+  float y = e.getY(id);
+  switch (e.getActionMasked()) {
+    case MotionEvent.ACTION_DOWN:
+    case MotionEvent.ACTION_POINTER_DOWN:
+      // touch down
+      break;
+    case MotionEvent.ACTION_MOVE:
+      // touch move
+      break;
+    case MotionEvent.ACTION_UP:
+    case MotionEvent.ACTION_POINTER_UP:
+    case MotionEvent.ACTION_CANCEL:
+      // touch up
+      break;
+  }
+  return true;
 }
 ```
 
