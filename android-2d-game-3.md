@@ -21,6 +21,14 @@ Add `android:screenOrientation="landscape"`, for example.
   android:screenOrientation="landscape">
 ```
 
+Or dynamically:
+
+```java
+import android.content.pm.ActivityInfo;
+
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+```
+
 ## How to avoid that f*king blurry screen?
 
 Add this under the `<manifest>` tag.
