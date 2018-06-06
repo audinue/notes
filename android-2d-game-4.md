@@ -1,4 +1,4 @@
-# Android 2D Game Development Notes 3
+# Android 2D Game Development Notes 4
 
 Random how to examples... continued.
 
@@ -50,3 +50,38 @@ try {
 }
 ```
 
+# How to handle single touch input?
+
+```java
+import android.view.MotionEvent;
+
+private int state;
+private float touchX;
+private float touchY;
+
+@Override
+public boolean onTouchEvent(MotionEvent e) {
+  switch (e.getActionMasked()) {
+    case MotionEvent.ACTION_DOWN:
+      state = 1;
+      break;
+    case MotionEvent.ACTION_MOVE:
+      touchX = e.getX();
+      touchY = e.getY();
+      break;
+    case MotionEvent.ACTION_UP:
+    case MotionEvent.ACTION_CANCEL:
+      state = 2;
+      break;
+  }
+}
+
+private void onGameLoop() {
+  // here:
+  //   isPressed = state == 1
+  //   isDown = state == 2
+  if (state == 1) {
+    state = 2;
+  }
+}
+```
