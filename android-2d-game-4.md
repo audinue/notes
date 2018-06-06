@@ -55,7 +55,7 @@ try {
 ```java
 import android.view.MotionEvent;
 
-private int state;
+private int touchState;
 private float touchX;
 private float touchY;
 
@@ -63,7 +63,7 @@ private float touchY;
 public boolean onTouchEvent(MotionEvent e) {
   switch (e.getActionMasked()) {
     case MotionEvent.ACTION_DOWN:
-      state = 1;
+      touchState = 1;
       break;
     case MotionEvent.ACTION_MOVE:
       touchX = e.getX();
@@ -71,17 +71,18 @@ public boolean onTouchEvent(MotionEvent e) {
       break;
     case MotionEvent.ACTION_UP:
     case MotionEvent.ACTION_CANCEL:
-      state = 0;
+      touchState = 0;
       break;
   }
+  return super.onTouchEvent(e);
 }
 
 private void onGameLoop() {
   // here:
-  //   isPressed = state == 1
-  //   isDown = state == 2
-  if (state == 1) {
-    state = 2;
+  //   touch is pressed (similar to click): touchState == 1
+  //   touch is down: touchState == 2
+  if (touchState == 1) {
+    touchState = 2;
   }
 }
 ```
