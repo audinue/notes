@@ -7,3 +7,4 @@
 5. Loading and drawing image
 6. Handling [touch] input
 7. Loading and playing sound effects and music
+8. Loading data
