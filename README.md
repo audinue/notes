@@ -1,2 +1,2 @@
-# notes
-My notes in markdown.
+# Notes
+My notes about stuff I'm interested in.
