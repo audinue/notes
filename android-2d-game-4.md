@@ -35,7 +35,7 @@ getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 ## How to draw text?
 
 ```java
-canvas.drawText("Hello world!", x, y, paint);
+canvas.drawText("Hello world!", x, y + Math.abs(paint.ascent()), paint);
 ```
 
 ## How to load a font?
