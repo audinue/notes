@@ -112,11 +112,13 @@ public void onCreate(Bundle bundle) {
 
 private void onGameLoop() {
   // draw to **this**.canvas here...
-  // then scale back buffer to the surface view:
-  Canvas canvas = holder.lockCanvas();
-  canvas.drawBitmap(bitmap, null, new RectF(0, 0, view.getWidth(), view.getHeight()), paint); 
-                              // this RectF should be cached somehow to avoid GC
-                              // also... fitting the dimensions would be nice ;)
-  holder.unlockCanvasAndPost(canvas);
+  if (holder.getSurface().isValid()) {
+    // then scale back buffer to the surface view
+    Canvas canvas = holder.lockCanvas();
+    canvas.drawBitmap(bitmap, null, new RectF(0, 0, view.getWidth(), view.getHeight()), paint); 
+                                // this RectF should be cached somehow to avoid GC
+                                // also... fitting the dimensions would be nice ;)
+    holder.unlockCanvasAndPost(canvas);
+  }
 }
 ```
