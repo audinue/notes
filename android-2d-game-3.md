@@ -7,8 +7,7 @@ Random how to examples.
 Add `android:theme="@android:style/Theme.NoTitleBar.Fullscreen"`.
 
 ```xml
-<application android:label="@string/app_name" android:icon="@drawable/ic_launcher"
-  android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+<application android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 ```
 
 ## How to target specific screen orientation?
@@ -17,7 +16,6 @@ Add `android:screenOrientation="landscape"`, for example.
 
 ```xml
 <activity android:name="HelloWorld"
-  android:label="@string/app_name"
   android:screenOrientation="landscape">
 ```
 
@@ -34,7 +32,12 @@ setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 Add this under the `<manifest>` tag.
 
 ```xml
-<supports-screens android:xlargeScreens="true" android:largeScreens="true" />
+<supports-screens 
+  android:smallScreens="true" 
+  android:normalScreens="true" 
+  android:largeScreens="true"
+  android:xlargeScreens="true"
+  android:anyDensity="true" />
 ```
 
 ## How to make a game loop?
